@@ -16,6 +16,11 @@
     body {
         background-color: black;
     }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
 </style>
 
 <body>
@@ -69,6 +74,7 @@
         }
     </style>
     <div>
+        <h1></h1>
         <div id="index" class="href" onclick="location.href = '/'">回到主页</div>
         <div id="list_all" class="href" onclick="location.search = '?call_sign=ALL_LOGS'">显示所有通联日志</div>
         <div id="no_call_sign" class="href" onclick="location.search = '?call_sign=NO_CALL_SIGN'">显示所有无呼号电台记录</div>
@@ -140,10 +146,13 @@
     </div>
     <script>
         if (location.search.startsWith('?call_sign=') || location.search == '') {
-            document.querySelector("input[name=call_sign]").value = location.search.replace('?call_sign=', '');
+            document.querySelector("h1").innerText = location.search.replace('?call_sign=', '');
         } else {
             alert('参数错误!');
             location.search = '?call_sign=';
+        }
+        if (location.search.replace('?call_sign=', '') == '') {
+            location.search = '?call_sign=ALL_LOGS';
         }
         fetch('../communication_record.json')
             .then(response => response.json())
@@ -193,7 +202,7 @@
                     </tr>
                     `;
                 }
-                list_m --;
+                list_m--;
             }
         }
     </script>
