@@ -12,6 +12,7 @@
     <script src="/js/all.js"></script>
     <script src="https://api.cnzw.us.kg/media-player/main.js"></script>
     <script src="https://api.cnzw.us.kg/js/set_bili_video.js"></script>
+    <script src="https://api.cnzw.us.kg/js/watermark.js"></script>
 </head>
 <style>
     body {
@@ -20,10 +21,156 @@
 
     .ic {
         max-width: 100%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
     }
 </style>
 
 <body>
+    <!--CNZW-->
+    <!--未启用或不支持JavaScript时显示页面-->
+    <noscript class="noscript">
+        <h2 class="noscript">
+            你的浏览器不支持或未启用JavaScript
+            <br>
+            请启用JavaScript后重新加载页面
+            <br>
+            <br>
+            <br>
+            <a id="help-javascript"
+                href="https://support.microsoft.com/zh-cn/office/%E5%90%AF%E7%94%A8-javascript-7bb9ee74-6a9e-4dd1-babf-b0a1bb136361">
+                获取更多帮助
+            </a>
+            <style>
+                #help-javascript {
+                    font-size: 17px;
+                    color: black;
+                    border: 5px solid red;
+                    border-radius: 5px;
+                }
+
+                #help-javascript:hover {
+                    color: rgb(0, 255, 0);
+                }
+            </style>
+            <div class="noscript-link">
+                Powered&nbsp;by
+                <a href="https://github.com/CNZWBYWTW" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/CNZWBYWTW" class="noscript-avatar">
+                    <span class="MC">
+                        CNZWBYWTW
+                    </span>
+                </a>
+            </div>
+            <span class="copyright">
+                <b>
+                    Copyright&copy;&nbsp;by
+                    <a href="https://github.com/CNZWBYWTW" target="_blank" class="MC">
+                        CNZW
+                    </a>
+                    . All Right Reserved
+                </b>
+            </span>
+        </h2>
+        <style>
+            .noscript {
+                user-select: none;
+                position: fixed;
+                text-align: center;
+                z-index: 114514;
+                background-color: rgb(50, 50, 50);
+                color: white;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            .noscript a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .noscript-link {
+                margin-top: 50px;
+            }
+
+            .noscript-avatar {
+                background-color: black;
+                width: 20px;
+                border-radius: 50%;
+                margin-bottom: -2px;
+
+            }
+
+            .copyright {
+                font-size: 15px;
+            }
+
+            .MC {
+                font-family: 'MC';
+            }
+        </style>
+    </noscript>
+    <!--background-->
+    <div id="background">
+        <div id="background-video-nu"></div>
+        <video id="background-video" preload muted autoplay>
+            <source src="/img/CNZW/background.mp4">
+        </video>
+        <style>
+            #background {
+                position: fixed;
+                background-color: transparent;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -114514;
+            }
+
+            #background-video {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #background-video-nu {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+        </style>
+        <script>
+            function _p() {
+                document.querySelector("#background").style = "display: none;";
+                console.log("竖屏, 自动切换壁纸")
+            }
+            function _c() {
+                document.querySelector("#background").style = "";
+                console.log("横屏, 自动切换壁纸")
+            }
+            setInterval(function () {
+                if (innerWidth / innerHeight < 1.2) {
+                    document.querySelector("#background").style = "display: none;";
+                } else {
+                    document.querySelector("#background").style = "";
+                }
+                if (document.querySelector('#background-video').paused) {
+                    document.querySelector('#background-video').play();
+                }
+            })
+        </script>
+    </div>
+    <!--CNZW-->
     <div id="search">
         <form method="get" action="./search">
             <input name="call_sign" placeholder="搜索CNZW的通联日志">
@@ -36,7 +183,7 @@
                 right: 0;
                 width: 100%;
                 height: 10vh;
-                background-color: black;
+                background-color: rgba(0, 0, 0, 0.8);
                 color: white;
                 border-bottom: 3px white solid;
                 z-index: 2;
@@ -86,6 +233,8 @@
         <br>
         <video class="video-js" controls preload="auto" width="880" height="500" data-setup="{}" data-bili-id="BV1Ag4y1b7pa"></video>
         <br>
+        <video class="video-js" controls preload="auto" width="880" height="500" data-setup="{}" data-bili-id="BV1ox4y1e71S"></video>
+        <br>
         <style>
             .title {
                 font-size: 20vh;
@@ -103,7 +252,8 @@
                 margin-right: auto;
                 word-wrap: break-word;
             }
-            .video-js{
+
+            .video-js {
                 border: 3px #00ff00 solid;
                 border-radius: 10px;
                 display: block;
