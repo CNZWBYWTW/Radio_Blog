@@ -1,5 +1,5 @@
 //////////////////////////////
-alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${new Date().toUTCString().replace('GMT', 'UTC')}\n预计正式启用时间: 2025-07-01 ~ 2025-09-01\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
+alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${new Date().toUTCString().replace('GMT', 'UTC')}\n预计正式启用时间: 2025-07-01 0000UTC ~ 2025-09-01 2359UTC\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
 //////////////////////////////
 
 
