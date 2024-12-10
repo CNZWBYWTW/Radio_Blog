@@ -12,6 +12,9 @@
     <script src="/js/all.js"></script>
     <script src="https://api.cnzw.us.kg/media-player/main.js"></script>
     <script src="https://api.cnzw.us.kg/js/set_bili_video.js"></script>
+    <!--CW-->
+    <script src="https://api.cnzw.us.kg/js/radio/cw.js"></script>
+    <div id="cw_player"></div>
 </head>
 <style>
     body {
@@ -115,7 +118,7 @@
     <!--background-->
     <div id="background">
         <div id="background-video-nu"></div>
-        <video id="background-video" preload muted autoplay>
+        <video id="background-video" preload muted autoplay loop>
             <source src="https://cnzw.us.kg/img/CNZW/background.mp4">
         </video>
         <style>
@@ -211,16 +214,16 @@
         </style>
     </div>
     <div class="ic">
-        <div class="title">CNZW</div>
-        <div class="welcome">CQ CQ CQ</div>
+        <div class="title" onclick="cw(this.innerText)">CNZW</div>
+        <div class="welcome" onclick="cw(this.innerText)">CQ CQ CQ</div>
         <br>
-        <div class="welcome">DE B*4***</div>
+        <div class="welcome" onclick="cw(this.innerText)">DE B*4***</div>
         <br>
-        <div class="welcome">QTH OM85HK</div>
+        <div class="welcome" onclick="cw(this.innerText)">QTH OM85HK</div>
         <br>
-        <div class="welcome">RST 59+114514🤓☝</div>
+        <div class="welcome" onclick="cw(this.innerText)">RST 59+114514🤓☝</div>
         <br>
-        <div class="welcome">73</div>
+        <div class="welcome" onclick="cw(this.innerText)">73</div>
         <br>
         <div class="welcome">
             <span>E-mail:</span>
