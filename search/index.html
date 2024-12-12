@@ -10,6 +10,7 @@
     <link rel="icon" href="/img/CNZW/TB.png">
     <link rel="stylesheet" href="/css/all.css">
     <script src="/js/all.js"></script>
+    <script src="https://api.cnzw.us.kg/js/watermark.js"></script>
 </head>
 <style>
     body {
@@ -150,7 +151,7 @@
     </div>
     <div class="t-note">通联日志注释</div>
     <div class="t-note">1. 日志中所有标有 "(发)" 的字段, 均为CNZW的电台信息</div>
-    <div class="t-note">2. 日志中所有时间如无说明或标注, 均使用北京时间(UTC+8)</div>
+    <div class="t-note">2. 日志中所有时间如无说明或标注, 均使用协调世界时(UTC)</div>
     <style>
         .t-note {
             text-align: center;
@@ -168,8 +169,7 @@
                 <tr>
                     <td>呼号</td>
                     <td>日期</td>
-                    <td>通联时间(开始)</td>
-                    <td>通联时间(结束)</td>
+                    <td>通联时间</td>
                     <td>频率</td>
                     <td>操作方式</td>
                     <td>信号报告(收)</td>
@@ -255,9 +255,8 @@
                     document.querySelector("#list table").innerHTML += `
                     <tr>
                         <td onclick="location.search = '?call_sign=${list[list_m]['call_sign']}'">${list[list_m]['call_sign']}</td>
-                        <td>${list[list_m]['time']}</td>
-                        <td>${list[list_m]['time-s']}</td>
-                        <td>${list[list_m]['time-e']}</td>
+                        <td>${list[list_m]['time-y_m_d']}</td>
+                        <td>${list[list_m]['time-utc']}</td>
                         <td>${list[list_m]['fq']}</td>
                         <td>${list[list_m]['mode']}</td>
                         <td>${list[list_m]['rst-t']}</td>
@@ -273,9 +272,8 @@
                     document.querySelector("#list table").innerHTML += `
                     <tr>
                         <td onclick="location.search = '?call_sign=${list[list_m]['call_sign']}'">${list[list_m]['call_sign']}</td>
-                        <td>${list[list_m]['time']}</td>
-                        <td>${list[list_m]['time-s']}</td>
-                        <td>${list[list_m]['time-e']}</td>
+                        <td>${list[list_m]['time-y_m_d']}</td>
+                        <td>${list[list_m]['time-utc']}</td>
                         <td>${list[list_m]['fq']}</td>
                         <td>${list[list_m]['mode']}</td>
                         <td>${list[list_m]['rst-t']}</td>
