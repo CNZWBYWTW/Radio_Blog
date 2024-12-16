@@ -1,8 +1,8 @@
 [
     {
         "call_sign": "CNZW_TEST",
-        "time-y_m_d": "1145-01-04",
-        "time-utc": "1145",
+        "date": "1145-01-04",
+        "time": "1145",
         "fq": "1145.000MHz",
         "mode": "SSB",
         "rst-t": "59",
