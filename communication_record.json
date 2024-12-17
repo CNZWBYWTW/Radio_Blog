@@ -1,15 +1,15 @@
 [
     {
-        "call_sign": "CNZW_TEST",
-        "date": "1145-01-04",
-        "time": "1145",
-        "fq": "1145.000MHz",
+        "call_sign": "BPM",
+        "date": "2024-12-15",
+        "time": "0500",
+        "fq": "10MHz",
         "mode": "SSB",
-        "rst-t": "59",
-        "rst-r": "59",
-        "qth-t": "Liuzhou Guangxi China",
+        "rst-t": "",
+        "rst-r": "35",
+        "qth-t": "",
         "qth-r": "Jining Shandong China",
-        "content": "这是测试内容",
-        "note": "这是测试备注"
+        "content": "",
+        "note": "没拿到呼号前的信号接收记录, 主要是闲的没事想要一个授时台的QSL卡片"
     }
 ]
