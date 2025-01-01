@@ -240,7 +240,18 @@
             <span>Website:</span>
             <a class="welcome" href="https://cnzw.us.kg/">https://cnzw.us.kg/</a>
         </div>
-        <div id="time-UTC" class="welcome"><script>setInterval(function(){document.querySelector('#time-UTC').innerHTML = `<br>Time: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}`})</script></div>
+        <div id="time-UTC" class="welcome">
+            <script>
+                var time = new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC');
+                document.querySelector('#time-UTC').innerHTML = `<br>Time: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}`
+                setInterval(function () {
+                    if (new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC') != time) {
+                        document.querySelector('#time-UTC').innerHTML = `<br>Time: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}`;
+                        time = new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC');
+                    }
+                })
+            </script>
+        </div>
         <br>
         <video class="video-js" controls preload="auto" width="880px" height="500px" data-setup="{}"
             data-bili-id="BV1Ag4y1b7pa"></video>
