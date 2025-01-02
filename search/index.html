@@ -20,6 +20,25 @@
         text-align: center;
         color: white;
     }
+
+    .EBQ_title {
+        font-family: "MC";
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 11vw;
+    }
+
+    .EBQ {
+        width: 80%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: 3vw;
+    }
 </style>
 
 <body>
@@ -242,6 +261,28 @@
         if (location.search.replace('?call_sign=', '') == '') {
             location.search = '?call_sign=ALL_LOGS';
         }
+        if (location.search.replace('?call_sign=', '') == 'EYE_BALL_QSO') {
+            function get_id(id) {
+                return document.querySelector(`#${id}`);
+            }
+            get_id('search').style = 'display: none;';
+            get_id('tmb').style = 'display: none;';
+            get_id('index').style = 'display: none;';
+            get_id('list_all').style = 'display: none;';
+            get_id('no_call_sign').style = 'display: none;';
+            document.querySelectorAll('.t-note')[0].style = 'display: none;'
+            document.querySelectorAll('.t-note')[1].style = 'display: none;'
+            document.querySelectorAll('.t-note')[2].style = 'display: none;'
+            location.hash = '#list';
+            document.querySelector("#list").innerHTML = `
+            <br>
+            <div class="EBQ_title">EYE BALL QSO</div>
+            <br>
+            <div class="EBQ">如果你是通过我的QSL卡片进入并看到此页面, 则说明我们之间可能并没有实质性通联, 所交换的卡片可能是用于收藏或纪念等用途</div>
+            <br>
+            <div class="EBQ">If you enter and see this page through My QSL Card, it means that there may not be any substantial communication between us, and the card exchanged may be for collection or commemorative purposes.</div>
+            `;
+        }
         fetch('../communication_record.json')
             .then(response => response.json())
             .then(CNZW => {
@@ -250,7 +291,7 @@
                 search_start(location.search.replace('?call_sign=', ''));
             });
         function search_start(search_call_sign) {
-            while (list_m > -1 && location.search.replace('?call_sign=', '') != '') {
+            while (list_m > -1 && location.search.replace('?call_sign=', '') != '' && location.search.replace('?call_sign=', '') != 'EYE_BALL_QSO') {
                 if (list[list_m]['call_sign'] == '') {
                     list[list_m]['call_sign'] = 'NO_CALL_SIGN';
                 }
