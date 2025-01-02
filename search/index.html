@@ -262,6 +262,7 @@
             location.search = '?call_sign=ALL_LOGS';
         }
         if (location.search.replace('?call_sign=', '') == 'EYE_BALL_QSO') {
+            document.querySelector("title").innerText = "Eye Ball QSO - CNZW";
             function get_id(id) {
                 return document.querySelector(`#${id}`);
             }
