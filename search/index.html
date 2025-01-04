@@ -261,7 +261,7 @@
         if (location.search.replace('?call_sign=', '') == '') {
             location.search = '?call_sign=ALL_LOGS';
         }
-        if (location.search.replace('?call_sign=', '') == 'EYE_BALL_QSO') {
+        if (location.search.replace('?call_sign=', '') == 'EYE-BALL-QSO') {
             document.querySelector("title").innerText = "Eye Ball QSO - CNZW";
             function get_id(id) {
                 return document.querySelector(`#${id}`);
@@ -292,7 +292,7 @@
                 search_start(location.search.replace('?call_sign=', ''));
             });
         function search_start(search_call_sign) {
-            while (list_m > -1 && location.search.replace('?call_sign=', '') != '' && location.search.replace('?call_sign=', '') != 'EYE_BALL_QSO') {
+            while (list_m > -1 && location.search.replace('?call_sign=', '') != '' && location.search.replace('?call_sign=', '') != 'EYE-BALL-QSO') {
                 if (list[list_m]['call_sign'] == '') {
                     list[list_m]['call_sign'] = 'NO_CALL_SIGN';
                 }
