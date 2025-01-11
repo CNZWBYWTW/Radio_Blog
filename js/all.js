@@ -1,10 +1,10 @@
 //////////////////////////////
-alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}\n预计正式启用时间: 2025-07-01 0000UTC ~ 2025-09-01 2359UTC\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
+alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${new Date().toUTCString().replace('GMT', 'UTC')}\n预计正式启用时间: 2025-07-01 ~ 2025-09-01\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
 //////////////////////////////
 
 
 
-//CNZW FUNCTIONS
+/* CNZW FUNCTIONS */
 function getURL(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -85,4 +85,69 @@ function getPi(pij) {
         sign *= -1;
     }
     return pi * 4;
+}
+
+/*validateEmail*/
+function checkEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+}
+
+/*spectrum*/
+function spectrum(media_id, canvas_id) {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioElement = document.getElementById(media_id);
+    const source = audioContext.createMediaElementSource(audioElement);
+    const analyser = audioContext.createAnalyser();
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+    const canvas = document.getElementById(canvas_id);
+    const ctx = canvas.getContext('2d');
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const renderFrame = () => {
+        requestAnimationFrame(renderFrame);
+        analyser.getByteFrequencyData(dataArray);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const barWidth = (canvas.width / analyser.frequencyBinCount);
+        let barHeight;
+        for (let i = 0; i < analyser.frequencyBinCount; i++) {
+            barHeight = dataArray[i];
+            const ratio = barHeight / 255;
+            const r = Math.round(255 * (1 - ratio));
+            const g = Math.round(255 * ratio);
+            const b = 0;
+            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            ctx.fillRect(barWidth * i, canvas.height, barWidth, -barHeight);
+        }
+    };
+    renderFrame();
+}
+function spectrum_url(media_url, canvas_id) {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const audioElement = new Audio(media_url);
+    const source = audioContext.createMediaElementSource(audioElement);
+    const analyser = audioContext.createAnalyser();
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+    const canvas = document.getElementById(canvas_id);
+    const ctx = canvas.getContext('2d');
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const renderFrame = () => {
+        requestAnimationFrame(renderFrame);
+        analyser.getByteFrequencyData(dataArray);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const barWidth = (canvas.width / analyser.frequencyBinCount);
+        let barHeight;
+        for (let i = 0; i < analyser.frequencyBinCount; i++) {
+            barHeight = dataArray[i];
+            const ratio = barHeight / 255;
+            const r = Math.round(255 * (1 - ratio));
+            const g = Math.round(255 * ratio);
+            const b = 0;
+            ctx.fillStyle = `rgb(${r},${g},${b})`;
+            ctx.fillRect(barWidth * i, canvas.height, barWidth, -barHeight);
+        }
+    };
+    renderFrame();
+    audioElement.play();
 }
