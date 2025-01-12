@@ -244,14 +244,14 @@
         </div>
         <div id="time-UTC" class="welcome">
             <script>
-                var time = new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC');
-                document.querySelector('#time-UTC').innerHTML = `<br>Time: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}`
+                var time = UTC();
+                document.querySelector('#time-UTC').innerHTML = `<br>Time: ${UTC()}`;
                 setInterval(function () {
-                    if (new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC') != time) {
-                        document.querySelector('#time-UTC').innerHTML = `<br>Time: ${new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC')}`;
-                        time = new Date().toUTCString().replace(' GMT', '').slice(0, -3).replace(':', '').concat('UTC');
+                    if (UTC() != time) {
+                        document.querySelector('#time-UTC').innerHTML = `<br>Time: ${UTC()}`;
+                        time = UTC();
                     }
-                })
+                });
             </script>
         </div>
         <br>
