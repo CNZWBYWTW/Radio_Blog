@@ -3,73 +3,350 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CNZW發布頁 回家的路</title>
-    <link href="css/style-2.css" rel="stylesheet" />
-    <link href="favicon.ico" rel="Shortcut Icon" type="image/ico" />
-    <link href="https://cnzw.us.kg/css/all.css" rel="stylesheet">
+    <title>Radio - CNZW</title>
+    <meta name="description" content="Radio by CNZW">
+    <meta name="keywords" content="CNZW, Radio">
+    <meta name="copyright" content="CNZW">
+    <link rel="icon" href="/img/CNZW/TB.png">
+    <link rel="stylesheet" href="/css/all.css">
+    <script src="/js/all.js"></script>
+    <script src="https://api.cnzw.us.kg/media-player/main.js"></script>
+    <script src="https://api.cnzw.us.kg/js/set_bili_video.js"></script>
+    <!--CW-->
+    <script src="https://api.cnzw.us.kg/js/radio/cw.js"></script>
 </head>
+<style>
+    body {
+        background-color: black;
+    }
+
+    .ic {
+        max-width: 100%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .video-js {
+        width: 880px;
+        height: 500px;
+        max-width: 100%;
+    }
+</style>
 
 <body>
-    <main class="snap-container">
-        <div class="page img-right">
-            <img class="img-rwd " src="img/01-r.png" alt="">
-            <img class="img-rwd " src="img/01-l.png" alt="">
-        </div>
-        <div class="page main-content">
-            <div class="wrap">
-                <h1><cnzw>CNZW</cnzw>發布頁</h1>
-                <h2>回家的路，怕走失記得收藏哦</h2>
-                <div>
-                    <p>主站網域</p>
-                    <div class="international">
-                        <span>cnzw.us.kg</span>
-                    </div>
-                </div>
-                <div>
-                    <p>HAM建議使用</p><small>歡迎愛好者前來訪問</small>
-                    <div class="southeast_asia">
-                        <span>radio.cnzw.us.kg</span>
-                    </div>
-                </div>
-                <div>
-                    <p>分流1</p>
-                    <div class="first_line">
-                        <span>www.我爱玩蔚蓝档案.cloudns.org</span>
-                    </div>
-                </div>
-                <div>
-                    <p>如果地址無法打開，歡迎發送郵件告知:</p>
-                    <div class="email">
-                        <span>admin@cnzw.us.kg</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="page img-left">
-            <img class="img-rwd k" src="img/01-l.png" alt="">
-            <img class="img-rwd " src="img/01-r.png" alt="">
-        </div>
-        <div class="nav-dot-container">
-            <p class="nav-dot dot-active"><span></span></p>
-            <p class="nav-dot "><span></span></p>
-            <p class="nav-dot "><span></span></p>
-        </div>
-    </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const snapContainer = document.querySelector('.snap-container');
-            const pages = document.querySelectorAll('.page');
-            const navDots = document.querySelectorAll('.nav-dot');
+    <!--CNZW-->
+    <!--未启用或不支持JavaScript时显示页面-->
+    <noscript class="noscript">
+        <h2 class="noscript">
+            你的浏览器不支持或未启用JavaScript
+            <br>
+            请启用JavaScript后重新加载页面
+            <br>
+            <br>
+            <br>
+            <a id="help-javascript"
+                href="https://support.microsoft.com/zh-cn/office/%E5%90%AF%E7%94%A8-javascript-7bb9ee74-6a9e-4dd1-babf-b0a1bb136361">
+                获取更多帮助
+            </a>
+            <style>
+                #help-javascript {
+                    font-size: 17px;
+                    color: black;
+                    border: 5px solid red;
+                    border-radius: 5px;
+                }
 
-            snapContainer.addEventListener('scroll', () => {
-                let index = Math.round(snapContainer.scrollTop / window.innerHeight);
-                navDots.forEach((dot, i) => {
-                    dot.classList.toggle('dot-active', i === index);
+                #help-javascript:hover {
+                    color: rgb(0, 255, 0);
+                }
+            </style>
+            <div class="noscript-link">
+                Powered&nbsp;by
+                <a href="https://github.com/CNZWBYWTW" target="_blank">
+                    <img src="https://avatars.githubusercontent.com/CNZWBYWTW" class="noscript-avatar">
+                    <span class="MC">
+                        CNZWBYWTW
+                    </span>
+                </a>
+            </div>
+            <span class="copyright">
+                <b>
+                    Copyright&copy;&nbsp;by
+                    <a href="https://github.com/CNZWBYWTW" target="_blank" class="MC">
+                        CNZW
+                    </a>
+                    . All Right Reserved
+                </b>
+            </span>
+        </h2>
+        <style>
+            .noscript {
+                user-select: none;
+                position: fixed;
+                text-align: center;
+                z-index: 114514;
+                background-color: rgb(50, 50, 50);
+                color: white;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+            }
+
+            .noscript a {
+                text-decoration: none;
+                color: white;
+            }
+
+            .noscript-link {
+                margin-top: 50px;
+            }
+
+            .noscript-avatar {
+                background-color: black;
+                width: 20px;
+                border-radius: 50%;
+                margin-bottom: -2px;
+
+            }
+
+            .copyright {
+                font-size: 15px;
+            }
+
+            .MC {
+                font-family: 'MC';
+            }
+        </style>
+    </noscript>
+    <!--background-->
+    <div id="background">
+        <div id="background-video-nu"></div>
+        <video id="background-video" preload muted autoplay loop>
+            <source src="https://cnzw.us.kg/img/CNZW/background.mp4">
+        </video>
+        <style>
+            #background {
+                position: fixed;
+                background-color: transparent;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: -114514;
+                pointer-events: none;
+            }
+
+            #background-video {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            #background-video-nu {
+                position: fixed;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+        </style>
+        <script>
+            function _p() {
+                document.querySelector("#background").style = "display: none;";
+                console.log("竖屏, 自动切换壁纸")
+            }
+            function _c() {
+                document.querySelector("#background").style = "";
+                console.log("横屏, 自动切换壁纸")
+            }
+            setInterval(function () {
+                if (innerWidth / innerHeight < 1.2) {
+                    document.querySelector("#background").style = "display: none;";
+                } else {
+                    document.querySelector("#background").style = "";
+                }
+                if (document.querySelector('#background-video').paused) {
+                    document.querySelector('#background-video').play();
+                }
+            })
+        </script>
+    </div>
+    <!--CNZW-->
+    <div id="search">
+        <form method="get" action="./search">
+            <input name="call_sign" placeholder="搜索CNZW的通联日志">
+        </form>
+        <style>
+            #search {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 10vh;
+                background-color: rgba(0, 0, 0, 0.8);
+                color: white;
+                border-bottom: 3px white solid;
+                z-index: 2;
+            }
+
+            #search form,
+            #search form input {
+                position: fixed;
+                top: 0;
+                right: 0;
+                height: 10vh;
+                width: 100%;
+                font-size: 5vh;
+                text-align: center;
+                background-color: transparent;
+                color: white;
+                border: none;
+            }
+        </style>
+    </div>
+    <div id="tmb">
+        <style>
+            #tmb {
+                margin-bottom: 10vh;
+            }
+        </style>
+    </div>
+    <div class="ic">
+        <div class="title error-text" data-text="CNZW" onclick="cw(this.innerText)">CNZW</div>
+        <img class="index-title-PCX" src="./img/index/PCX.png" onclick="new Audio('./media/audio/index/SBPCX.mp3').play()">
+        <br>
+        <div class="welcome" onclick="cw(this.innerText)">CQ CQ CQ</div>
+        <br>
+        <div class="welcome" onclick="cw(this.innerText)">DE B*4***</div>
+        <br>
+        <div class="welcome" onclick="cw(this.innerText)">QTH OM85hk<!--OL44qg--></div>
+        <br>
+        <div class="welcome" onclick="cw(this.innerText)">RST 59+114514🤓☝</div>
+        <br>
+        <div class="welcome" onclick="cw(this.innerText)">73</div>
+        <br>
+        <div class="welcome">
+            <span>E-mail:</span>
+            <a class="welcome" href="mailto:admin@cnzw.us.kg">admin@cnzw.us.kg</a>
+        </div>
+        <br>
+        <div class="welcome">
+            <span>Website:</span>
+            <a class="welcome" href="https://cnzw.us.kg/">https://cnzw.us.kg/</a>
+        </div>
+        <div id="time-UTC" class="welcome">
+            <script>
+                var time = UTC();
+                document.querySelector('#time-UTC').innerHTML = `<br>Time: ${UTC()}`;
+                setInterval(function () {
+                    if (UTC() != time) {
+                        document.querySelector('#time-UTC').innerHTML = `<br>Time: ${UTC()}`;
+                        time = UTC();
+                    }
                 });
-            });
-        });
-    </script>
+            </script>
+        </div>
+        <br>
+        <iframe class="index-video" src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1ox4y1e71S&p=1&poster=true&autoplay=false&danmaku=false" width="880px" height="500px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+        <br>
+        <style>
+            .title {
+                font-size: 20vh;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: 'MC';
+                color: white;
+                text-shadow:
+                    -1px -1px #ffffff,
+                    -2px -2px #e2ffe2,
+                    -3px -3px #c6ffc6,
+                    -4px -4px #a9ffa9,
+                    -5px -5px #8dff8d,
+                    -6px -6px #71ff71,
+                    -7px -7px #55ff55,
+                    -8px -8px #38ff38,
+                    -9px -9px #1cff1c,
+                    -10px -10px #00ff00;
+            }
+
+            .welcome {
+                font-size: 3vh;
+                text-align: center;
+                color: white;
+                width: 70%;
+                margin-left: auto;
+                margin-right: auto;
+                word-wrap: break-word;
+            }
+
+            .index-video {
+                border: 3px #00ff00 solid;
+                border-radius: 10px;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 99%;
+            }
+            .index-title-PCX{
+                width: 45vh;
+                max-width: 45vh;
+                border-radius: 5px;
+                display: block;
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+                animation: shake 100ms infinite;
+            }
+        </style>
+    </div>
+    <!--footer-->
+    <footer id="footer">
+        <hr color="white" size="3" />
+        <a href="https://gitdub.com/CNZWBYWTW/" target="_blank" title="Gitdub:@CNZWBYWTW">
+            <img src="https://img.shields.io/badge/Gitdub-CNZWBYWTW-black" alt="Gitdub:@CNZWBYWTW">
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="https://space.bilibili.com/3493132140284888/" target="_blank" title="Bilibili:@CNZW">
+            <img src="https://img.shields.io/badge/Bilibili-CNZW-blue" alt="Bilibili:@CNZW">
+        </a>
+        <br>
+        <b>The page was created by <a href="https://cnzw.us.kg/">CNZW</a></b>
+        <br>
+        <!--copyright-->
+        <b id="copyright">
+            Copyright&copy;&nbsp;2023-
+            <b id="CPY">
+                114514
+            </b>
+            &nbsp;CNZW. All Right Reserved
+        </b>
+        <br>
+        <hr color="white" size="3" />
+        <script>
+            document.querySelector("#CPY").innerText = new Date().getFullYear();
+        </script>
+        <style>
+            footer {
+                position: relative;
+                bottom: 0;
+                width: 100%;
+            }
+
+            footer a {
+                color: black;
+                text-decoration: none;
+            }
+        </style>
+    </footer>
 </body>
 
 </html>
