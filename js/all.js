@@ -1,5 +1,5 @@
 //////////////////////////////
-alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${new Date().toUTCString().replace('GMT', 'UTC')}\n预计正式启用时间: 2025-07-01 ~ 2025-09-01\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
+alert(`此站处于待运行(未正式启用)状态\n\n当前时间: ${UTC()}\n预计正式启用时间: 2025-07-01 ~ 2025-09-01\n\nPowered by CNZW\nhttps://cnzw.us.kg/\nGitHub@CNZWBYWTW`);
 //////////////////////////////
 
 
@@ -150,4 +150,20 @@ function spectrum_url(media_url, canvas_s) {
     };
     renderFrame();
     audioElement.play();
+}
+
+/*Get_UTC_Time*/
+function UTC() {
+    date = new Date();
+    function padZero(num) {
+        return num < 10 ? '0' + num : num;
+    };
+    return (
+        date.getUTCFullYear() + '-' +
+        padZero(date.getUTCMonth() + 1) + '-' +
+        padZero(date.getUTCDate()) + ' ' +
+        padZero(date.getUTCHours()) + ':' +
+        padZero(date.getUTCMinutes()) + ':' +
+        padZero(date.getUTCSeconds()) + ' UTC'
+    );
 }
