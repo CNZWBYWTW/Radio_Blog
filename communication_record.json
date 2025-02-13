@@ -1,15 +1,15 @@
 [
     {
-        "call_sign": "BPM",
-        "date": "2024-12-15",
-        "time": "0500",
-        "fq": "10MHz",
-        "mode": "SSB",
+        "call_sign": "",
+        "date": "",
+        "time": "",
+        "fq": "",
+        "mode": "",
         "rst-t": "",
-        "rst-r": "35",
+        "rst-r": "",
         "qth-t": "",
-        "qth-r": "Jining Shandong China",
-        "content": "B~P~M~, 标准时间标准频率发波台🤓",
-        "note": "没拿到呼号前的信号接收记录, 主要是闲的没事想要一个授时台的QSL卡片"
+        "qth-r": "",
+        "content": "",
+        "note": ""
     }
 ]
